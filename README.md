@@ -20,7 +20,6 @@ daily-mood-tracker/
 ├── app.py                             # Main Flask application
 ├── templates/
 │   └── index.html                     # HTML template for UI
-├── static/                            # Folder for CSS or assets (if used)
 ├── mood_log.txt / data.json           # File used to store entries
 ├── Daily_Mood_Tracker_with_Journal_(using_Flask).ipynb  # Notebook version
 └── README.md
