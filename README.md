@@ -34,7 +34,7 @@ cd daily-mood-tracker
 ```
 2. Install Requirements
 ```bash
-pip install flask
+pip install -r requirements.txt
 ```
 3. Run the Application
 ```bash
