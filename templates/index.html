@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Mood Tracker</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #374151;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+        label {
+            font-weight: bold;
+        }
+        select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+        }
+        input[type="submit"] {
+            background-color: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover {
+            background-color: #2563eb;
+        }
+        .entry {
+            background-color: #ffffff;
+            border-left: 6px solid #3b82f6;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .entry .timestamp {
+            font-size: 0.9em;
+            color: #6b7280;
+            margin-bottom: 5px;
+        }
+        .entry .mood {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .entry .journal {
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌤️ Daily Mood Tracker & Journal</h1>
+    <form action="/add" method="post">
+        <label for="mood">How are you feeling today?</label>
+        <select name="mood" id="mood" required>
+            <option value="😊 Happy">😊 Happy</option>
+            <option value="😢 Sad">😢 Sad</option>
+            <option value="😠 Angry">😠 Angry</option>
+            <option value="😄 Excited">😄 Excited</option>
+            <option value="😴 Tired">😴 Tired</option>
+            <option value="😐 Neutral">😐 Neutral</option>
+        </select>
+
+        <label for="journal">Write about your day:</label>
+        <textarea name="journal" rows="5" required placeholder="What happened today? How did you feel?"></textarea>
+
+        <input type="submit" value="Save Entry">
+    </form>
+
+    <h2 style="text-align:center; color: #374151;">📚 Your Past Entries</h2>
+    {% for entry in entries %}
+        <div class="entry">
+            <div class="timestamp">{{ entry.timestamp.strftime('%B %d, %Y %I:%M %p') }}</div>
+            <div class="mood">{{ entry.mood }}</div>
+            <div class="journal">{{ entry.journal }}</div>
+        </div>
+    {% endfor %}
+</body>
+</html>
