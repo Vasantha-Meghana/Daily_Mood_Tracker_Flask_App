@@ -42,3 +42,23 @@ python app.py
 ```
 Visit http://127.0.0.1:5000 in your browser to use the app.
 
+## Explore via Jupyter Notebook
+If you'd like to understand the logic in a more educational format, open:
+
+```bash
+Daily_Mood_Tracker_with_Journal_(using_Flask).ipynb
+```
+You can run this notebook in Google Colab or your local Jupyter environment.
+
+## Features Displayed in the UI
+- Dropdown mood selection (e.g., Happy, Angry)
+- Free-text journal entry
+- "Save Entry" button
+- Your Past Entries section showing:
+  - Mood with emoji
+  - Timestamp
+  - Journal text in card format
+
+## Screenshot
+Below is a screenshot of the app in action:
+![Screenshot 2025-07-09 101641](https://github.com/user-attachments/assets/bd9465b5-3d2e-42a1-bddf-0a70a432e83d)
