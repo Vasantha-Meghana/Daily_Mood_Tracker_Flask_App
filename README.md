@@ -22,6 +22,7 @@ daily-mood-tracker/
 │   └── index.html                     # HTML template for UI
 ├── mood_log.txt / data.json           # File used to store entries
 ├── Daily_Mood_Tracker_with_Journal_(using_Flask).ipynb  # Notebook version
+├── requiements.txt
 └── README.md
 ```
 
@@ -39,7 +40,6 @@ pip install flask
 ```bash
 python app.py
 ```
-Visit http://127.0.0.1:5000 in your browser to use the app.
 
 ## Explore via Jupyter Notebook
 If you'd like to understand the logic in a more educational format, open:
