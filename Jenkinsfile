@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     environment {
+        PYTHON_EXE = 'C:\\Program Files\\Python311\\python.exe'
         VENV_DIR = 'venv'
     }
 
@@ -14,32 +15,32 @@ pipeline {
 
         stage('Setup Python Environment') {
             steps {
-                bat '''
-                    python -m venv %VENV_DIR%
+                bat """
+                    "%PYTHON_EXE%" -m venv %VENV_DIR%
                     call %VENV_DIR%\\Scripts\\activate
-                    pip install --upgrade pip
-                    pip install -r requirements.txt
-                '''
+                    %VENV_DIR%\\Scripts\\pip install --upgrade pip
+                    %VENV_DIR%\\Scripts\\pip install -r requirements.txt
+                """
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat '''
+                bat """
                     call %VENV_DIR%\\Scripts\\activate
                     echo No tests defined
-                '''
+                """
             }
         }
 
         stage('Run Flask App') {
             steps {
-                bat '''
+                bat """
                     call %VENV_DIR%\\Scripts\\activate
                     set FLASK_APP=app.py
                     set FLASK_ENV=development
                     start /B flask run --host=0.0.0.0 --port=5000
-                '''
+                """
             }
         }
     }
