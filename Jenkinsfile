@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Vasantha-Meghana/Daily_Mood_Tracker_Flask_App.git'
+                git branch: 'main', url: 'https://github.com/Vasantha-Meghana/Daily_Mood_Tracker_Flask_App.git'
             }
         }
 
