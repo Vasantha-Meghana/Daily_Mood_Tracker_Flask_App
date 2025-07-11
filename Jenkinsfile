@@ -14,9 +14,9 @@ pipeline {
 
         stage('Setup Python Environment') {
             steps {
-                sh '''
-                    python3 -m venv $VENV_DIR
-                    . $VENV_DIR/bin/activate
+                bat '''
+                    python -m venv %VENV_DIR%
+                    call %VENV_DIR%\\Scripts\\activate
                     pip install --upgrade pip
                     pip install -r requirements.txt
                 '''
@@ -25,21 +25,20 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh '''
-                    . $VENV_DIR/bin/activate
-                    # Add your test commands here
-                    echo "No tests defined"
+                bat '''
+                    call %VENV_DIR%\\Scripts\\activate
+                    echo No tests defined
                 '''
             }
         }
 
         stage('Run Flask App') {
             steps {
-                sh '''
-                    . $VENV_DIR/bin/activate
-                    export FLASK_APP=app.py
-                    export FLASK_ENV=development
-                    flask run --host=0.0.0.0 --port=5000 &
+                bat '''
+                    call %VENV_DIR%\\Scripts\\activate
+                    set FLASK_APP=app.py
+                    set FLASK_ENV=development
+                    start /B flask run --host=0.0.0.0 --port=5000
                 '''
             }
         }
